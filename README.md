@@ -52,40 +52,47 @@ Setup para Git
 
  ✅ Cenários Automatizados
 
-1. Cadastro e adição de produto a Lista de Compras
+Cenário 1 - Criar e autenticar usuário
 
--Cadastrar novo usuário
--Logado automaticamente na UI
--Pesquisa pelo produto específico
--Adiciona produto a lista de compras
--Retorna a Home
--Finaliza sessão
+1. Gerar dinamicamente um usuário com nome, e-mail e senha
 
+2. Enviar um POST /usuarios para cadastrá-lo
 
-2. Busca e validação de produto na lista de Compras
+3. Validar status 201 e mensagem de sucesso
 
--Cadastrar novo usuário
--Logado automaticamente na UI
--Pesquisa pelo produto
--Adiciona produto a lista de compras
--Consulta produto na lista de compras
--Retorna a Home
--Finaliza sessão
+4. Realizar um POST /login com as credenciais recém-criadas
 
+5. Validar status 200, mensagem de sucesso e recebimento do token
 
-3. Remoção e adição de novo produto
+Cenário 2 - Criar e listar produto
 
--Cadastrar novo usuário
--Logado automaticamente na UI
--Pesquisa pelo produto
--Adiciona produto a lista de compras
--Consulta produto na lista de compras
--Remova produto na lista de compras
--Retorna a Home
--Pesquisa novo produto e adicione um novo
--Consulta produto na lista de compras
--Finaliza sessão
+1. Autenticar um usuário administrador
 
+2. Gerar dinamicamente um novo produto
+
+3. Criar produto via POST /produtos, utilizando o token no header
+
+4. Validar status 201 e mensagem de cadastro
+
+5. Listar todos os produtos via GET /produtos
+
+6. Verificar se o produto criado aparece corretamente na lista
+
+Cenário 3 - Criar e cancelar carrinho
+
+1. Criar e autenticar um novo usuário comum
+
+2. Autenticar um usuário administrador para cadastrar um produto
+
+3. Criar um novo produto via POST /produtos
+
+4. Criar carrinho com esse produto usando POST /carrinhos
+
+5. Validar status 201 e mensagem de sucesso
+
+6. Cancelar o carrinho com DELETE /carrinhos/cancelar-compra
+
+7. Validar status 200 e mensagem de confirmação de remoção
 
 
 ------
