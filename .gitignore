@@ -1,0 +1,13 @@
+node_modules/
+package-lock.json
+
+cypress/screenshots/
+cypress/videos/
+
+# Ambiente e variáveis sensíveis
+cypress.env.json
+.env
+
+.DS_Store
+
+.vscode/
